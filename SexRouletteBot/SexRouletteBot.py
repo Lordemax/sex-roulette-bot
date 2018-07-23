@@ -28,12 +28,12 @@ def start(bot, update):
         "\n"
         "Choose the step from keyboard.",
         reply_markup=ReplyKeyboardMarkup(reply_keyboard))
-    update.message.forward(chat_id_group)
 start_handler=CommandHandler("start", start)
 dispatcher.add_handler(start_handler)
 
 def feedback(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Write me your feedback")
+    update.message.forward(chat_id_group)
 feed_handler=CommandHandler("feedback", feedback)
 dispatcher.add_handler(feed_handler)
 
